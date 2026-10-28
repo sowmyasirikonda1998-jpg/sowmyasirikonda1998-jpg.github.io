@@ -3,106 +3,586 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sowmyasri Sirikonda | Salesforce Industries & OmniStudio Lead Architect</title>
+  <title>Sowmyasri Sirikonda | Salesforce Revenue Cloud, OmniStudio & Agentforce Lead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0070d2;
-      --bg: #0b1329;
-      --card-bg: #152243;
-      --text: #e2e8f0;
+      --bg-dark: #080c14;
+      --bg-card: #0f172a;
+      --border-color: #1e293b;
+      --border-glow: #334155;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #10b981;
+      --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --highlight: #00e5ff;
-      --border: #243b6b;
-      --success: #10b981;
+      --font-mono: 'JetBrains Mono', monospace;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    nav { position: sticky; top: 0; background: rgba(11, 19, 41, 0.95); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .nav-brand { font-weight: 800; font-size: 1.2rem; color: #fff; }
-    .nav-brand span { color: var(--highlight); }
-    .btn-sponsor { background: linear-gradient(135deg, #0070d2, #00c6ff); color: white; padding: 0.45rem 1.1rem; border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 700; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-    .hero { padding: 4rem 0 3rem; text-align: center; }
-    .visa-badge { display: inline-block; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--success); color: #34d399; padding: 0.35rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
-    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
-    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 2rem; }
-    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .m-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; text-align: center; }
-    .m-card .num { font-size: 2rem; font-weight: 800; color: var(--highlight); display: block; }
-    .m-card .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-    section { padding: 3rem 0; border-top: 1px solid var(--border); }
-    .sec-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #fff; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
-    .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 0.4rem; }
-    .card .role { color: var(--highlight); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; }
-    .card ul { padding-left: 1.2rem; color: #cbd5e1; font-size: 0.95rem; }
-    .card ul li { margin-bottom: 0.4rem; }
-    .tag { display: inline-block; background: rgba(0, 112, 210, 0.2); border: 1px solid rgba(0, 112, 210, 0.4); color: #7dd3fc; font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; margin: 0.2rem; }
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 0; text-align: center; color: var(--text-muted); }
-    footer a { color: var(--highlight); text-decoration: none; margin: 0 0.8rem; font-weight: 600; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 4.5rem 0 3rem;
+      border-bottom: 1px solid var(--border-color);
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 75%);
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-emerald);
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+
+    .info-pill {
+      background: #1e293b;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lead-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .summary-text {
+      color: var(--text-muted);
+      max-width: 850px;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .social-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.92rem;
+    }
+
+    .social-nav a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .social-nav a:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    .social-nav span {
+      color: var(--text-muted);
+    }
+
+    .metrics-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2.5rem 0 3.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+    }
+
+    .metric-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+    }
+
+    .metric-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tech-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .tech-box:hover {
+      border-color: var(--border-glow);
+    }
+
+    .tech-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tech-box h3 span {
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .tech-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.35rem;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      border: 1px solid #334155;
+    }
+
+    .experience-node {
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.75rem;
+      margin-bottom: 2.75rem;
+      position: relative;
+    }
+
+    .experience-node::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .job-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0.25rem 0 0.85rem;
+    }
+
+    .job-sub strong {
+      color: #cbd5e1;
+    }
+
+    .job-bullets {
+      list-style-type: none;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+    }
+
+    .job-bullets li {
+      margin-bottom: 0.6rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .job-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-size: 0.9rem;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .cert-badge {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.9rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .cert-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent-blue);
+      flex-shrink: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-brand">⚡ <span>Sowmyasri</span>.dev</div>
-    <a href="mailto:sowmyasirikonda1998@gmail.com" class="btn-sponsor">Hire / Sponsor Visa</a>
-  </nav>
-  <div class="container">
-    <header class="hero">
-      <div class="visa-badge">🌍 Open to Visa Sponsorship (UK Skilled Worker, EU Blue Card, US H-1B/L-1, Canada, UAE)</div>
+
+  <header>
+    <div class="container">
+      <div class="badge-bar">
+        <div class="status-pill">
+          <span class="indicator"></span> Open to Senior / Lead Roles
+        </div>
+        <div class="info-pill">6.5+ Years Experience</div>
+        <div class="info-pill">Open to Visa Sponsorship & Relocation</div>
+      </div>
+
       <h1>Sowmyasri Sirikonda</h1>
-      <p>Senior Salesforce Industries (Vlocity) Developer & OmniStudio Architect. 7+ Years Experience across Telecom (Communications Cloud), Banking, and Healthcare.</p>
-      <div class="metrics">
-        <div class="m-card"><span class="num">7+</span><span class="label">Years Platform Exp</span></div>
-        <div class="m-card"><span class="num">6x</span><span class="label">Salesforce Certified</span></div>
-        <div class="m-card"><span class="num">99.2%</span><span class="label">Fulfillment SLA</span></div>
-        <div class="m-card"><span class="num">40%</span><span class="label">Execution Speedup</span></div>
-      </div>
-    </header>
+      <div class="lead-title">Salesforce Revenue Cloud, OmniStudio & Agentforce Lead Developer</div>
 
-    <section>
-      <h2 class="sec-title">Enterprise Case Studies</h2>
-      <div class="card">
-        <h3>SoftBank — Digital Banking Order Management & Fulfillment</h3>
-        <div class="role">Lead OmniStudio / OM Engineer | Prodapt Solutions</div>
-        <ul>
-          <li>Orchestrated dynamic order decomposition and automated task workflows with a 99.2% fulfillment rate.</li>
-          <li>Optimized 25+ OmniScripts, Data Mappers, and Integration Procedures, boosting runtime execution speed by 40%.</li>
-          <li>Integrated tier-1 payment gateways using secure REST APIs, Queueable Apex, and Platform Events.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>British Telecom (BT) — Communications Cloud (CMT) Transformation</h3>
-        <div class="role">Salesforce Vlocity Developer | Virtusa</div>
-        <ul>
-          <li>Configured Enterprise Product Catalog (EPC) structures and CPQ pricing matrices across 150+ telecom bundles.</li>
-          <li>Built OmniStudio digital journeys embedded in Customer Communities, improving user engagement by 18%.</li>
-          <li>Standardized Copado CI/CD pipelines, accelerating release cycles from bi-weekly to weekly zero-downtime releases.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="sec-title">Core Certifications</h2>
-      <div>
-        <span class="tag">Salesforce Certified OmniStudio Developer</span>
-        <span class="tag">Salesforce Certified Data Cloud Consultant</span>
-        <span class="tag">Salesforce Certified Platform Developer I</span>
-        <span class="tag">Salesforce Certified Sales Cloud Consultant</span>
-        <span class="tag">Salesforce Certified Platform App Builder</span>
-        <span class="tag">Salesforce Certified Administrator</span>
-      </div>
-    </section>
-
-    <footer>
-      <p style="margin-bottom: 1rem;">
-        <a href="mailto:sowmyasirikonda1998@gmail.com">Email Me</a>
-        <a href="tel:+916300247915">Call: +91 6300247915</a>
-        <a href="https://www.linkedin.com/in/sowmya-sri-sirikonda-3b59621b8" target="_blank">LinkedIn</a>
-        <a href="https://www.salesforce.com/trailblazer/sowmyasri23" target="_blank">Trailhead</a>
+      <p class="summary-text">
+        High-impact Salesforce Lead Developer with 6.5+ years of enterprise experience leading complex solution design, customer advisory work streams, and Quote-to-Cash (Q2C) delivery. Proven authority across Enterprise Product Catalog (EPC), Industries CPQ (pricing plans, calculation procedures, cardinality rules, bundles, discount schedules, and ABO/MACD), and Order Management (OM) decomposition. Deep platform mastery in Lightning Web Components (LWC), robust Apex trigger handler frameworks, optimized SOQL/SOSL indexing across large data volumes, and 1 year of production Agentforce autonomous agent architecture.
       </p>
-      <p>© 2026 Sowmyasri Sirikonda — Ready for Technical Interviews & Relocation.</p>
-    </footer>
-  </div>
+
+      <div class="social-nav">
+        <a href="mailto:sowmyasirikonda1998@gmail.com">sowmyasirikonda1998@gmail.com</a>
+        <span>&bull;</span>
+        <span>+91 6300247915</span>
+        <span>&bull;</span>
+        <span>Hyderabad, India</span>
+        <span>&bull;</span>
+        <a href="https://sowmyasirikonda1998-jpg.github.io" target="_blank">Live Portfolio</a>
+        <span>&bull;</span>
+        <a href="https://www.linkedin.com/in/sowmya-sri-sirikonda-3b59621b8" target="_blank">LinkedIn Profile</a>
+        <span>&bull;</span>
+        <a href="https://trailblazer.me/id/sowmyasri23" target="_blank">Trailhead (6x Certified)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="metrics-banner">
+      <div class="metric-card">
+        <div class="metric-val">6.5+</div>
+        <div class="metric-desc">Years Enterprise Experience</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">1 Year</div>
+        <div class="metric-desc">Agentforce & GenAI</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">99.2%</div>
+        <div class="metric-desc">Order Fulfillment SLA</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">6x</div>
+        <div class="metric-desc">Salesforce Certified</div>
+      </div>
+    </div>
+
+    <section>
+      <div class="section-header">
+        <h2>Technical Architecture & Core Specializations</h2>
+      </div>
+      <div class="skills-layout">
+        <div class="tech-box">
+          <h3>Agentforce & GenAI <span>1 Year Exp</span></h3>
+          <p>
+            Autonomous Agentforce agent architectures, reasoning engine configurations, Prompt Builder prompt templates, and Invocable Apex Agent Actions grounded with Data Cloud to automate intent triage, deflection, and execution flows.
+          </p>
+          <div class="chip-group">
+            <span class="chip">Agentforce AI Actions</span>
+            <span class="chip">Prompt Builder</span>
+            <span class="chip">Invocable Apex</span>
+            <span class="chip">Data Cloud Grounding</span>
+            <span class="chip">Autonomous Triage</span>
+          </div>
+        </div>
+
+        <div class="tech-box">
+          <h3>LWC & Apex Triggers</h3>
+          <p>
+            Modern Lightning Web Components (LWC) with custom wire adapters and event messaging (LMS). Scalable programmatic backend architecture utilizing one-trigger-per-object handler frameworks, recursion control, and async processing.
+          </p>
+          <div class="chip-group">
+            <span class="chip">LWC (Custom UI & Wire Adapters)</span>
+            <span class="chip">Trigger Handler Frameworks</span>
+            <span class="chip">Recursion Control</span>
+            <span class="chip">Async / Batch Apex</span>
+          </div>
+        </div>
+
+        <div class="tech-box">
+          <h3>SOQL & SOSL Query Optimization</h3>
+          <p>
+            High-performance query design for Large Data Volumes (LDV), relationship traverses, indexed filtering, and dynamic SOSL full-text searches across multiple objects to eliminate governor limit bottlenecks and CPU timeouts.
+          </p>
+          <div class="chip-group">
+            <span class="chip">Selective SOQL</span>
+            <span class="chip">Dynamic SOSL Search</span>
+            <span class="chip">Custom Indexing</span>
+            <span class="chip">Large Data Volumes (LDV)</span>
+          </div>
+        </div>
+
+        <div class="tech-box">
+          <h3>Revenue Cloud & Industries CPQ</h3>
+          <p>
+            Enterprise Product Catalog (EPC), product modeling, compatibility & cardinality rules, pricing matrices, calculation procedures, contract amendments/renewals, and Asset-Based Ordering (ABO: MACD).
+          </p>
+          <div class="chip-group">
+            <span class="chip">Industries CPQ</span>
+            <span class="chip">EPC Modeling</span>
+            <span class="chip">Calculation Procedures</span>
+            <span class="chip">ABO (MACD)</span>
+            <span class="chip">Billing Schedules</span>
+          </div>
+        </div>
+
+        <div class="tech-box">
+          <h3>OmniStudio & Order Management</h3>
+          <p>
+            OmniScripts, FlexCards, cached Data Mappers, and chained Integration Procedures. Technical architecture for Vlocity OM decomposition relationships, orchestration plans, fallback rules, and dynamic queues.
+          </p>
+          <div class="chip-group">
+            <span class="chip">OmniScripts</span>
+            <span class="chip">FlexCards</span>
+            <span class="chip">Integration Procedures</span>
+            <span class="chip">Data Mappers</span>
+            <span class="chip">Vlocity OM</span>
+          </div>
+        </div>
+
+        <div class="tech-box">
+          <h3>Integrations, Security & DevOps</h3>
+          <p>
+            Enterprise REST/SOAP APIs, Named Credentials, OAuth 2.0 / SAML SSO, sharing architecture, and automated release operations with Copado, Git, SFDX CLI, and Vlocity Build Tool (VBT).
+          </p>
+          <div class="chip-group">
+            <span class="chip">REST / SOAP APIs</span>
+            <span class="chip">OAuth 2.0 / SAML SSO</span>
+            <span class="chip">Copado CI/CD</span>
+            <span class="chip">SFDX & VBT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Enterprise Technical Experience</h2>
+      </div>
+
+      <div class="experience-node">
+        <div class="job-title">Senior Software Engineer / OmniStudio & Revenue Cloud Lead</div>
+        <div class="job-sub"><strong>Prodapt Solutions</strong> &bull; Oct 2024 &ndash; Present | Remote / Hyderabad &bull; Clients: <em>Liberty Latin America (LLA Peacock Telecom) & SoftBank Digital Banking</em></div>
+        <ul class="job-bullets">
+          <li><strong>Work Stream Technical Leadership:</strong> Owned end-to-end technical design and delivery of the digital banking and telecom work streams; authored High-Level and Technical Design Documents (HLD/TDD) aligned to Salesforce best practices.</li>
+          <li><strong>Agentforce Architecture (1 Year Dedicated):</strong> Engineered autonomous Agentforce Generative AI Actions paired with Prompt Builder templates and Invocable Apex to automate customer service intent triage, self-service deflection, and back-office routing.</li>
+          <li><strong>LWC & Programmatic Engineering:</strong> Designed high-performance Lightning Web Components (LWC) with custom styles and reactive wires integrated into OmniStudio customer journeys; built asynchronous Queueable and Batch Apex pipelines.</li>
+          <li><strong>Apex Triggers & Execution Framework:</strong> Implemented enterprise Apex Trigger handler patterns with strict recursion guards and bulkification to manage multi-object DML transactions cleanly without limits collisions.</li>
+          <li><strong>SOQL & SOSL Optimization:</strong> Refactored backend data extraction workflows using selective relationship SOQL queries and multi-object SOSL text searches, cutting server roundtrip latency by 40%.</li>
+          <li><strong>Order Management & Decomposition:</strong> Spearheaded SoftBank's enterprise enrollment platform, engineering custom Orchestration Plans, Order Item Definitions, and auto-decomposition trees achieving a <strong>99.2% order fulfillment SLA</strong>.</li>
+          <li><strong>Quote-to-Order & Billing Alignment:</strong> Designed automated quote-to-order handoffs, subscription schedule alignment, and settlement integration flows interfacing with core banking ledgers, mitigating billing disputes and revenue leakage.</li>
+          <li><strong>Team Mentorship & Standards:</strong> Guided distributed teams across code reviews, unit test standards, branching strategies, and zero-defect deployments.</li>
+        </ul>
+      </div>
+
+      <div class="experience-node">
+        <div class="job-title">Salesforce Vlocity & Revenue Cloud Lead Developer</div>
+        <div class="job-sub"><strong>Virtusa</strong> &bull; Aug 2023 &ndash; Oct 2024 | Hyderabad, India &bull; Client: <em>British Telecom (BT) - Communications Cloud Enterprise Transformation</em></div>
+        <ul class="job-bullets">
+          <li><strong>EPC & CPQ Modeling:</strong> Architected hierarchical commercial and technical product bundles, cardinality rules, attribute-based pricing, and complex pricing matrices across 150+ telecom enterprise offerings.</li>
+          <li><strong>Asset-Based Ordering (ABO) & Lifecycle Management:</strong> Spearheaded MACD (Move, Add, Change, Disconnect) user journeys, multi-year contract amendments, and co-terming renewal cycles within Vlocity CPQ, cutting contract reconciliation overhead by 35%.</li>
+          <li><strong>Customer Experience Optimization (LWC):</strong> Delivered responsive OmniScripts embedded inside Customer Communities and Service Consoles with custom LWC styling overrides, driving an 18% boost in self-service journey completion.</li>
+          <li><strong>Apex Triggers & Business Logic:</strong> Developed modular Apex Triggers and helper classes to enforce complex contract validation rules during quote-to-contract generation.</li>
+          <li><strong>Integration & MDM Alignment:</strong> Designed REST/SOAP API patterns for real-time customer credit checks, billing account creation, and enterprise product synchronization adhering to corporate Master Data Management (MDM) guidelines.</li>
+          <li><strong>DevOps & DataPack Governance:</strong> Governed release engineering using Visual Studio Code, Git, and the Vlocity Build Tool (VBT) to extract, validate, and version-control complex CPQ DataPacks, eliminating merge collisions across multi-stream squads.</li>
+        </ul>
+      </div>
+
+      <div class="experience-node">
+        <div class="job-title">Associate Consultant &bull; Salesforce Delivery & Architecture</div>
+        <div class="job-sub"><strong>Capgemini Technologies</strong> &bull; Dec 2019 &ndash; Aug 2023 | Hyderabad, India &bull; Client: <em>Telia / Enterprise Healthcare Modernisation</em></div>
+        <ul class="job-bullets">
+          <li><strong>Technical Design & Data Modeling:</strong> Engineered and maintained 40+ Custom Objects, complex junction relationships, Dynamic Forms, and automated Approval Processes supporting provider onboarding and enterprise claims processing.</li>
+          <li><strong>Enterprise Integration & Batch Apex:</strong> Designed high-throughput Batch Apex frameworks and custom REST web services synchronizing 1.2M+ historical patient records between legacy core databases and Salesforce CRM.</li>
+          <li><strong>Apex Triggers & Framework Modernization:</strong> Architected standardized Apex Triggers paired with handler frameworks to handle high-throughput record operations, preventing recursive loops and governor exceptions.</li>
+          <li><strong>SOQL & SOSL Implementation:</strong> Engineered selective, indexed SOQL queries and multi-object SOSL text searches to prevent heap and governor limit violations across high-volume healthcare datasets.</li>
+          <li><strong>OmniStudio Implementation:</strong> Implemented and maintained OmniScripts, Data Mappers, and Integration Procedures across complex enterprise business processes.</li>
+          <li><strong>HIPAA/GDPR Security Governance:</strong> Formulated strict sharing architectures, OWD rules, and Field-Level Security (FLS) to meet healthcare regulatory compliance and international data privacy mandates.</li>
+          <li><strong>Mentorship & Quality Standards:</strong> Standardized Copado CI/CD release practices, cutting release cycles from bi-weekly to weekly while mentoring 4 junior engineers in Apex test isolation and design patterns.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Salesforce Certifications (6x Verified)</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified Platform Developer I (PDI)
+        </div>
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified OmniStudio Developer
+        </div>
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified Data Cloud Consultant
+        </div>
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified Platform App Builder
+        </div>
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified Sales Cloud Consultant
+        </div>
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          SF Certified Administrator (ADM-201)
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Education & Accolades</h2>
+      </div>
+      <div class="skills-layout">
+        <div class="tech-box">
+          <h3>Education</h3>
+          <p style="font-weight: 600; color: #f1f5f9; margin-bottom: 0.25rem;">Bachelor of Technology (B.Tech) &bull; Electronics & Communication Engineering</p>
+          <p>SR University, Warangal, India &bull; Graduated 2019</p>
+        </div>
+        <div class="tech-box">
+          <h3>Honors & Recognitions</h3>
+          <p style="font-weight: 600; color: #f1f5f9; margin-bottom: 0.25rem;">Capgemini 'Xtramile' Award (2022)</p>
+          <p>Recognized for architectural stability, Q2C delivery, and client advocacy.</p>
+          <p style="font-weight: 600; color: #f1f5f9; margin-top: 0.75rem; margin-bottom: 0.25rem;">Prodapt Star Performer</p>
+          <p>Awarded for high-impact Quote-to-Cash execution and decomposition architecture on SoftBank.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Sowmyasri Sirikonda &bull; Deployed on GitHub Pages</p>
+    </div>
+  </footer>
+
 </body>
 </html>
